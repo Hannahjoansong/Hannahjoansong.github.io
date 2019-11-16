@@ -16,5 +16,144 @@ CHIP Mux4Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Not(in=sel[0], out=notsel0);
+    Not(in=sel[1], out=notsel1);
+
+    And(a=notsel0, b=notsel1, out=xa);
+    And(a=sel[1], b=notsel1, out=xb);
+    And(a=notsel0, b=sel[1], out=xc);
+    And(a=sel[0], b=sel[1], out=xd);
+
+    And(a=a[0], b=xa, out=w1);
+    And(a=a[1], b=xa, out=w2);
+    And(a=a[2], b=xa, out=w3);
+    And(a=a[3], b=xa, out=w4);
+    And(a=a[4], b=xa, out=w5);
+    And(a=a[5], b=xa, out=w6);
+    And(a=a[6], b=xa, out=w7);
+    And(a=a[7], b=xa, out=w8);
+    And(a=a[8], b=xa, out=w9);
+    And(a=a[9], b=xa, out=w10);
+    And(a=a[10], b=xa, out=w11);
+    And(a=a[11], b=xa, out=w12);
+    And(a=a[12], b=xa, out=w13);
+    And(a=a[13], b=xa, out=w14);
+    And(a=a[14], b=xa, out=w15);
+    And(a=a[15], b=xa, out=w16);
+
+    And(a=b[0], b=xb, out=w17);
+    And(a=b[1], b=xb, out=w18);
+    And(a=b[2], b=xb, out=w19);
+    And(a=b[3], b=xb, out=w20);
+    And(a=b[4], b=xb, out=w21);
+    And(a=b[5], b=xb, out=w22);
+    And(a=b[6], b=xb, out=w23);
+    And(a=b[7], b=xb, out=w24);
+    And(a=b[8], b=xb, out=w25);
+    And(a=b[9], b=xb, out=w26);
+    And(a=b[10], b=xb, out=w27);
+    And(a=b[11], b=xb, out=w28);
+    And(a=b[12], b=xb, out=w29);
+    And(a=b[13], b=xb, out=w30);
+    And(a=b[14], b=xb, out=w31);
+    And(a=b[15], b=xb, out=w32);
+
+    And(a=c[0], b=xc, out=w33);
+    And(a=c[1], b=xc, out=w34);
+    And(a=c[2], b=xc, out=w35);
+    And(a=c[3], b=xc, out=w36);
+    And(a=c[4], b=xc, out=w37);
+    And(a=c[5], b=xc, out=w38);
+    And(a=c[6], b=xc, out=w39);
+    And(a=c[7], b=xc, out=w40);
+    And(a=c[8], b=xc, out=w41);
+    And(a=c[9], b=xc, out=w42);
+    And(a=c[10], b=xc, out=w43);
+    And(a=c[11], b=xc, out=w44);
+    And(a=c[12], b=xc, out=w45);
+    And(a=c[13], b=xc, out=w46);
+    And(a=c[14], b=xc, out=w47);
+    And(a=c[15], b=xc, out=w48);
+
+    And(a=d[0], b=xd, out=w49);
+    And(a=d[1], b=xd, out=w50);
+    And(a=d[2], b=xd, out=w51);
+    And(a=d[3], b=xd, out=w52);
+    And(a=d[4], b=xd, out=w53);
+    And(a=d[5], b=xd, out=w54);
+    And(a=d[6], b=xd, out=w55);
+    And(a=d[7], b=xd, out=w56);
+    And(a=d[8], b=xd, out=w57);
+    And(a=d[9], b=xd, out=w58);
+    And(a=d[10], b=xd, out=w59);
+    And(a=d[11], b=xd, out=w60);
+    And(a=d[12], b=xd, out=w61);
+    And(a=d[13], b=xd, out=w62);
+    And(a=d[14], b=xd, out=w63);
+    And(a=d[15], b=xd, out=w64);
+
+    Or(a=w1, b=w17, out=out1);
+    Or(a=w33, b=w49, out=out2);
+    Or(a=out1, b=out2, out=out[0]);
+    
+    Or(a=w2, b=w18, out=out3);
+    Or(a=w34, b=w50, out=out4);
+    Or(a=out3, b=out4, out=out[1]);
+
+    Or(a=w3, b=w19, out=out5);
+    Or(a=w35, b=w51, out=out6);
+    Or(a=out5, b=out6, out=out[2]);
+
+    Or(a=w4, b=w20, out=out7);
+    Or(a=w36, b=w52, out=out8);
+    Or(a=out7, b=out8, out=out[3]);
+    
+    Or(a=w5, b=w21, out=out9);
+    Or(a=w37, b=w53, out=out10);
+    Or(a=out9, b=out10, out=out[4]);
+
+    Or(a=w6, b=w22, out=out11);
+    Or(a=w38, b=w54, out=out12);
+    Or(a=out11, b=out12, out=out[5]);
+
+    Or(a=w7, b=w23, out=out13);
+    Or(a=w39, b=w55, out=out14);
+    Or(a=out13, b=out14, out=out[6]);
+    
+    Or(a=w8, b=w24, out=out15);
+    Or(a=w40, b=w56, out=out16);
+    Or(a=out15, b=out16, out=out[7]);
+
+    Or(a=w9, b=w25, out=out17);
+    Or(a=w41, b=w57, out=out18);
+    Or(a=out17, b=out18, out=out[8]);
+
+    Or(a=w10, b=w26, out=out19);
+    Or(a=w42, b=w58, out=out20);
+    Or(a=out19, b=out20, out=out[9]);
+
+    Or(a=w11, b=w27, out=out21);
+    Or(a=w43, b=w59, out=out22);
+    Or(a=out21, b=out22, out=out[10]);
+
+    Or(a=w12, b=w28, out=out23);
+    Or(a=w44, b=w60, out=out24);
+    Or(a=out23, b=out24, out=out[11]);
+    
+    Or(a=w13, b=w29, out=out25);
+    Or(a=w45, b=w61, out=out26);
+    Or(a=out25, b=out26, out=out[12]);
+
+    Or(a=w14, b=w30, out=out27);
+    Or(a=w46, b=w62, out=out28);
+    Or(a=out27, b=out28, out=out[13]);
+
+    Or(a=w15, b=w31, out=out29);
+    Or(a=w47, b=w63, out=out30);
+    Or(a=out29, b=out30, out=out[14]);
+
+    Or(a=w16, b=w32, out=out31);
+    Or(a=w48, b=w64, out=out32);
+    Or(a=out31, b=out32, out=out[15]);
+   
 }
